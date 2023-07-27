@@ -1,0 +1,49 @@
+
+
+
+.Payment {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.Payment h2 {
+  text-align: center;
+}
+.Payment .payment-form {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+.Payment label {
+  display: block;
+  margin-bottom: 10px;
+}
+.Payment input[type="text"],
+.Payment input[type="email"],
+.Payment input[type="number"],
+.Payment select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+.Payment input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.Payment select {
+  /* Additional styles for the payment method dropdown */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16'%3E%3Cpath d='M30 6L16 20 2 6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+}
