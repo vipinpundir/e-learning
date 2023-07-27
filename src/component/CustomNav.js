@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom';
 import CoursePreview from './CoursePreview';
 import { useSelector } from 'react-redux'
 import Payment from './Payment';
+import AdminPage from './Admin';
 
 
 
@@ -21,7 +22,12 @@ const CustomNav = () => {
   const CartItems = useSelector(state => state.cart);
   let cartNum = CartItems.length;
   const isLoggedIn = useSelector(state => state.login);
+  const isAdmin = useSelector((state) => state.admin);
 
+  let adminpath=''
+  if(isAdmin===true){
+   adminpath='/admin@29'
+  }
 
   return (
     <div className="Nav">
@@ -54,6 +60,8 @@ const CustomNav = () => {
                 <Link to="signup"> <Button variant="outline-success" className='m-2'>Signup</Button></Link>
               </>
             }
+            {isAdmin ? <Link to="admin@29"> <Button variant="outline-secondary" className='m-2' >AdminDash</Button></Link>
+            : ''}
 
           </Navbar.Collapse>
         </Container>
@@ -64,6 +72,7 @@ const CustomNav = () => {
         <Route path="/signup" element={<Signup></Signup>} />
         <Route path="/cart" element={<Cart></Cart>} />
         <Route path="/payment" element={<Payment></Payment>} />
+        <Route exact path={adminpath} element={<AdminPage></AdminPage>} />
         <Route path="/coursepreview" element={<CoursePreview></CoursePreview>} />
       </Routes>
     </div>

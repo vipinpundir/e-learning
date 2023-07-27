@@ -4,6 +4,7 @@ import "./Login.css"
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { loginCheck } from '../redux/slices/LoginSlice';
+import { adminCheck } from '../redux/slices/AdminSlice';
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -40,7 +41,9 @@ const Login = () => {
             .then(response => response.json())
             .then(data => {
                 const userExist = data.find(user => user.email === Email);
-
+                if (userExist.role==="admin"){
+                    dispatch(adminCheck(true))
+                }
                 if (userExist) {
                     if (userExist.password === Password) {
                         dispatch(loginCheck(true));
