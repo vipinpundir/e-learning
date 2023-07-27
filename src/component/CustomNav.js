@@ -24,9 +24,9 @@ const CustomNav = () => {
   const isLoggedIn = useSelector(state => state.login);
   const isAdmin = useSelector((state) => state.admin);
 
-  let adminpath=''
-  if(isAdmin===true){
-   adminpath='/admin@29'
+  let adminpath = ''
+  if (isAdmin === true) {
+    adminpath = '/admin@29'
   }
 
   return (
@@ -54,14 +54,15 @@ const CustomNav = () => {
               <Button variant="outline-success">Search</Button>
             </Form>
             <Link to='cart' > <Button variant="outline-warning border" className='m-2'>Cart ({cartNum})</Button></Link>
-            {isLoggedIn ? <h5>User</h5>
+            {isAdmin ? <Link to="admin@29"> <Button variant="outline-secondary" className='m-2' >AdminDash</Button></Link>
+              : ''}
+            {isLoggedIn ? <h5 style={{width: "35px",height: "35px",borderRadius: "50%",backgroundColor: "darkgrey",color: "#FFF",display: "flex",alignItems: "center",justifyContent: "center",}} >V</h5>
               : <>
                 <Link to="login"> <Button variant="outline-secondary" className='m-2' >Login</Button></Link>
                 <Link to="signup"> <Button variant="outline-success" className='m-2'>Signup</Button></Link>
               </>
             }
-            {isAdmin ? <Link to="admin@29"> <Button variant="outline-secondary" className='m-2' >AdminDash</Button></Link>
-            : ''}
+           
 
           </Navbar.Collapse>
         </Container>
