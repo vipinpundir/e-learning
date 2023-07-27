@@ -1,6 +1,6 @@
 
-E-Learning Website README
-E-Learning Website
+##E-Learning Website README
+#E-Learning Website
 
 Welcome to the E-Learning website! This web application is designed to provide various programming courses to users who want to improve their skills and productivity. The courses cover different programming languages and are created by renowned instructors in the field. The website is built using React and Redux, and it utilizes a JSON server (db.json) to provide course data and user information.
 
