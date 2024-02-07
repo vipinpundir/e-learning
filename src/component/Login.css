@@ -1,0 +1,112 @@
+<<<<<<< HEAD
+.Login form,
+.Signup form {
+  background-color: #f5f5f5;
+  margin: auto;
+  padding: 20px 40px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.363);
+  text-align: center;
+  border-radius: 5px;
+}
+
+.Login::after,
+.Signup::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(24, 29, 56, 0.7);
+  z-index: -1;
+=======
+.form {
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.363);
+    border-radius: 15px;
+}
+
+.form input {
+    border-radius: 10px;
+>>>>>>> origin/master
+}
+
+.Login,
+.Signup {
+<<<<<<< HEAD
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url(../assets//aboutImg.jpg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+}
+
+.Login form button,
+.Signup form button {
+  background-color: #06BBCC;
+  border: 1px solid #06BBCC;
+  width: 100%;
+}
+
+.Login form button:hover,
+.Signup form button:hover {
+  background-color: #1099a5;
+  color: #fff;
+}
+
+.Login form a,
+.Signup form a {
+  border: 1px solid #06BBCC;
+  width: 100%;
+}
+
+.Login form a:hover,
+.Signup form a:hover {
+  background-color: #1099a5;
+  color: #fff;
+}
+=======
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.form Button {
+    width: 100%;
+}
+
+
+
+/* Modal.css */
+.modal {
+    display: none;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: fit-content !important;
+    transition: ease-in-out;
+  }
+  
+>>>>>>> origin/master
