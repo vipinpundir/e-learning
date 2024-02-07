@@ -1,5 +1,4 @@
 import CustomNav from "./component/CustomNav";
-<<<<<<< HEAD
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AllRoutes from "./routes/AllRoutes";
@@ -14,17 +13,6 @@ function App() {
       <CustomNav/>
       <AllRoutes/>
       <ToastContainer position="bottom-center"/>
-=======
-// import Footer from "./component/Footer";
-
-function App() {
-  return (
-    <div className="App">
-      <CustomNav/>
-      {/* <Courses></Courses> */}
-      {/* <Login></Login> */}
-      {/* <Footer></Footer> */}
->>>>>>> origin/master
     </div>
   );
 }
