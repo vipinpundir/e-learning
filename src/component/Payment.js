@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 
 const Payment = () => {
@@ -16,7 +17,7 @@ const Payment = () => {
     if (lodinDetails !=null) {
       const formData = { userEmail: lodinDetails.email, courseId: id }
 
-      fetch('/enroll/course', {
+      fetch(`${apiUrl}/enroll/course`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

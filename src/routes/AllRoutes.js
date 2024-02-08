@@ -13,14 +13,15 @@ const AllRoutes = () => {
     return (
         <div className='AllRoutes'>
             <Routes>
-                <Route path="/" element={<Home></Home>} />
-                <Route path="/login" element={<Login></Login>} />
-                <Route path="/signup" element={<Signup></Signup>} />
-                <Route path="/about" element={<About></About>} />
-                <Route path="/payment/:id/:name/:author/:price" element={<Payment></Payment>} />
+                <Route path="*" element={<Home></Home>} />
+                <Route exact path="/" element={<Home></Home>} />
+                <Route exact path="/login" element={<Login></Login>} />
+                <Route exact path="/signup" element={<Signup></Signup>} />
+                <Route exact path="/about" element={<About></About>} />
+                <Route exact path="/payment/:id/:name/:author/:price" element={<Payment></Payment>} />
                 <Route exact path='/admin' element={<AdminPage></AdminPage>} />
-                <Route path="/coursepreview" element={<CoursePreview></CoursePreview>} />
-                <Route path="/enrolled/courses" element={<MyCourses></MyCourses>} />
+                <Route exact path="/coursepreview" element={<CoursePreview></CoursePreview>} />
+                <Route exact path="/enrolled/courses" element={<MyCourses></MyCourses>} />
             </Routes>
         </div>
     )

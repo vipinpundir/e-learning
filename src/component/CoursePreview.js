@@ -1,15 +1,12 @@
 import React from 'react'
 import "../component/CoursePreview.css"
-import { useSelector } from 'react-redux'
-import { Button, Container, Row, Col } from 'react-bootstrap';
-import { toast } from 'react-toastify';
+import {  Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 
 const CoursePreview = () => {
   // Retrieving data from sessionStorage
   const coursePreview = JSON.parse(sessionStorage.getItem('coursePreviewDetails'));
 
-  const isLoggedIn = useSelector(state => state.login);
   return (
     <>
 

@@ -3,6 +3,8 @@ import { Button } from 'react-bootstrap';
 import "../component/Login.css"
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+const apiUrl = process.env.REACT_APP_API_URL;
+
 
 const Signup = () => {
 
@@ -35,7 +37,7 @@ const Signup = () => {
             toast.warning("Details are required")
         } else {
 
-            fetch('/addUser', {
+            fetch(`${apiUrl}/addUser`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -49,7 +51,7 @@ const Signup = () => {
                         return res.json();
                     }
                 }).then((data) => { toast.success(data.message) })
-                .catch(error => console.error('Error creating User:', error)
+                .catch(error => toast.error('Internal Server Error')
             );
         }
 

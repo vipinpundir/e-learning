@@ -5,13 +5,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { loginCheck } from '../redux/slices/LoginSlice';
 import { toast } from 'react-toastify';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const Login = () => {
     const dispatch = useDispatch();
     const redirect = useNavigate()
     const [Email, setEmail] = useState('');
     const [Password, setPassword] = useState('');
-
+    
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
     };
@@ -29,9 +30,9 @@ const Login = () => {
         if (Email.length === 0 && Password.length === 0) {
             toast.warning("Email and password is required")
         } else {
-
+            
             // Make a POST request to the API
-            fetch('/login', {
+            fetch(`${apiUrl}/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -49,12 +50,14 @@ const Login = () => {
                     } else {
                         toast.error("User note found");
                     }
-                });
+                }).catch((err)=>{
+                    toast.error("Internal Server Error");
+                    console.log(err)
+                })
 
         }
 
     };
-    // Disable the button when at least one field is empty
 
     return (
         <>
@@ -65,7 +68,7 @@ const Login = () => {
                         <input className="form-control" onChange={handleEmailChange} value={Email} type="text" placeholder="Enter your email" required />
                     </div>
                     <div className="mb-3 ">
-                        <input className="form-control" onChange={handlePasswordChange} value={Password} type="password" placeholder="Enter your password" required />
+                        <input className="form-control" onChange={handlePasswordChange} value={Password} type="current-password" placeholder="Enter your password" required />
                     </div>
                     <Button onClick={handleLogin} >Login</Button>
                     <p className='mt-3'>Have not account yet?</p><Link className='btn' to="/signup" >Signup</Link>
