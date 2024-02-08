@@ -4,11 +4,18 @@ Welcome to the E-Learning Platform project! This platform allows users to regist
 
 ## Technologies Used
 
+### Frontend
 - React
-- Node.js (Backend code available in a separate repository)
 - HTML
 - CSS
 - JavaScript
+- Bootstrap
+
+### Backend
+- Node.js
+- Express.js
+- MySQL (Relational Database)
+
 
 ## Features
 
