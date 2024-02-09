@@ -68,7 +68,7 @@ const Signup = () => {
                     <input className="form-control" onChange={handleEmailChange} value={email} type="email" placeholder="Enter your email" />
                 </div>
                 <div className="mb-3 ">
-                    <input className="form-control" onChange={handlePasswordChange} value={password} type="password" placeholder="Enter your password" />
+                    <input className="form-control" onChange={handlePasswordChange} value={password} type="current-password" placeholder="Enter your password" />
                 </div>
                 <Button onClick={handleSubmit} type='submit'>Signup</Button>
                 <p className='mt-3'>Already have an account?</p><Link className='btn' to="/login" >Login</Link>

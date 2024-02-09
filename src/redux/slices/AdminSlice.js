@@ -2,15 +2,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const adminSlice = createSlice({
-  name: "admin",
+  name: "adminStatus",
   initialState: false,
   reducers: {
-    adminCheck: (state, action) => {
+    adminStatus: (state, action) => {
       return action.payload;
     },
 
   },
 });
 
-export const { adminCheck } = adminSlice.actions;
+export const { adminStatus } = adminSlice.actions;
 export default adminSlice.reducer;

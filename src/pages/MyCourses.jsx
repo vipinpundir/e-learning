@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const MyCourses = () => {
   const [enrolledCourses, setEnrolledCourses] = useState([])
 
   useEffect(() => {
     const userEmail = (JSON.parse(localStorage.getItem('loginDetails'))).email
-    console.log(userEmail, 'my')
-    fetch('/enrolled/courses', {
+    fetch(`${apiUrl}/enrolled/courses`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ userEmail: userEmail })
     }).then((res) => { return res.json() })
       .then((data) => {
         setEnrolledCourses(data.EnrolledCourses)
-        console.log(data, "my")
       }).catch((err) => {
         console.log(err)
       })

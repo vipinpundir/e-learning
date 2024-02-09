@@ -12,10 +12,12 @@ import { toast } from 'react-toastify';
 const CustomNav = () => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(state => state.login);
+  const adminStatus = useSelector(state => state.adminStatus);
+
 
   const logoutHandle =()=>{
-    toast.success("Logout successfully")
-    dispatch(loginCheck(false))
+    toast.success("Logout successfully");
+    dispatch(loginCheck(false));
     localStorage.removeItem('loginDetails');
   }
 
@@ -35,7 +37,8 @@ const CustomNav = () => {
                 {isLoggedIn
                   ?
                   <>
-                    <Link to="/enrolled/courses"> My Courses</Link>
+                  {adminStatus ? <Link to="/admin/dashboard">Admin Panel</Link> :< Link to="/enrolled/courses"> My Courses</Link>}
+                    
                     <Link  onClick={() =>{logoutHandle()} } >Logout</Link>
                   </>
                   : <>

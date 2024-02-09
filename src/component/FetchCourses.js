@@ -2,30 +2,35 @@ import React, { useEffect, useState } from 'react'
 import Course from './Course.js';
 import "./FetchCourses.css"
 import Footer from '../component/Footer.js'
+import { useDispatch } from 'react-redux';
+import { getCourses } from '../redux/slices/CoursesSlice.js';
+
+
 const apiUrl = process.env.REACT_APP_API_URL;
 
 
 const FetchCourses = () => {
-    const [data, setdata] = useState([])
-
-    async function fetchCourses() {
-        await fetch(`${apiUrl}/courses`, {
-            method: "GET",
-            headers: { "Content-Type": "application/json" },
-        }).then((res)=>{
-            return res.json();
-        }).then((data)=>{
-
-            setdata(data.CoursesDetails)
-        }).catch((err)=>{
-            console.log(err,'Error')
-        })
-    }
+    const dispatch = useDispatch()
+    const [data, setdata] = useState('')
 
     useEffect(() => {
+        async function fetchCourses() {
+            await fetch(`${apiUrl}/courses`, {
+                method: "GET",
+                headers: { "Content-Type": "application/json" },
+            }).then((res) => {
+                return res.json();
+            }).then((data) => {
+                setdata(data.CoursesDetails)
+                dispatch(getCourses(data.CoursesDetails))
+            }).catch((err) => {
+                console.log(err, 'Error')
+            })
+        }
+
         //Runs only on the first render
         fetchCourses()
-    }, []);
+    }, [dispatch]);
 
 
     return (

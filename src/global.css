@@ -147,6 +147,26 @@ html {
   text-align: center;
 }
 
+.AdminDashboard img{
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+}
+.AdminDashboard h1{
+  font-weight: 800;
+}
+.AdminDashboard .d-flex button{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #06BBCC;
+  border: none;
+  font-size: 1.8rem;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+}
+
 /* MediaQuery for tablet and smartphone width  */
 @media (max-width: 765px) {
 

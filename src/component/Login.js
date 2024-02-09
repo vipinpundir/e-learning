@@ -1,9 +1,10 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import "../component/Login.css"
 import Button from 'react-bootstrap/esm/Button'
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { loginCheck } from '../redux/slices/LoginSlice';
+import { adminStatus } from '../redux/slices/AdminSlice';
 import { toast } from 'react-toastify';
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -12,7 +13,7 @@ const Login = () => {
     const redirect = useNavigate()
     const [Email, setEmail] = useState('');
     const [Password, setPassword] = useState('');
-    
+
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
     };
@@ -22,7 +23,7 @@ const Login = () => {
     };
 
     const loginData = {
-        email: Email,
+        email: Email.trim(),
         password: Password
     }
 
@@ -30,7 +31,7 @@ const Login = () => {
         if (Email.length === 0 && Password.length === 0) {
             toast.warning("Email and password is required")
         } else {
-            
+
             // Make a POST request to the API
             fetch(`${apiUrl}/login`, {
                 method: 'POST',
@@ -44,13 +45,20 @@ const Login = () => {
                         toast.success("Successfully login...");
                         localStorage.setItem('loginDetails', JSON.stringify(data.loginDetails[0]));
                         dispatch(loginCheck(true));
-                        setTimeout(() => {
-                            redirect("/");
-                        }, 1000);
+
+                        // Check is Admin or not 
+                        if (data.loginDetails[0].role === 'admin') {
+                            dispatch(adminStatus(true));
+                            redirect("/admin/dashboard");
+                        } else {
+                            setTimeout(() => {
+                                redirect("/");
+                            }, 1000);
+                        }
                     } else {
                         toast.error("User note found");
                     }
-                }).catch((err)=>{
+                }).catch((err) => {
                     toast.error("Internal Server Error");
                     console.log(err)
                 })
