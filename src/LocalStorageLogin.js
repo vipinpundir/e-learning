@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { loginCheck } from "./redux/slices/LoginSlice";
+import { adminStatus } from "./redux/slices/AdminSlice";
 const apiUrl = process.env.REACT_APP_API_URL;
 
 
@@ -24,10 +25,14 @@ const LocalStorageLogin = () => {
                     if (data.loginStatus === true) {
                         dispatch(loginCheck(true));
                     }
+                    if (data.loginDetails[0].role === 'admin') {
+                        dispatch(adminStatus(true));
+                    }
+
                 });
         }
 
-    }, [dispatch,localLoginDetails]);
+    }, [dispatch, localLoginDetails]);
 
 };
 

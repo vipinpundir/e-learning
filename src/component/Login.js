@@ -27,7 +27,8 @@ const Login = () => {
         password: Password
     }
 
-    const handleLogin = () => {
+    const handleLogin = (e) => {
+        e.preventDefault()
         if (Email.length === 0 && Password.length === 0) {
             toast.warning("Email and password is required")
         } else {
@@ -70,7 +71,7 @@ const Login = () => {
     return (
         <>
             <div className="Login">
-                <form>
+                <form  onSubmit={handleLogin}>
                     <h2 className='mb-5'>Login</h2>
                     <div className="mb-3 ">
                         <input className="form-control" onChange={handleEmailChange} value={Email} type="text" placeholder="Enter your email" required />
@@ -78,7 +79,7 @@ const Login = () => {
                     <div className="mb-3 ">
                         <input className="form-control" onChange={handlePasswordChange} value={Password} type="current-password" placeholder="Enter your password" required />
                     </div>
-                    <Button onClick={handleLogin} >Login</Button>
+                    <Button type='submit' >Login</Button>
                     <p className='mt-3'>Have not account yet?</p><Link className='btn' to="/signup" >Signup</Link>
                 </form>
             </div>
