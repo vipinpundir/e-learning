@@ -6,18 +6,21 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux';
 import { loginCheck } from '../redux/slices/LoginSlice';
+import { adminStatus } from '../redux/slices/AdminSlice';
+
 import { toast } from 'react-toastify';
 
 
 const CustomNav = () => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(state => state.login);
-  const adminStatus = useSelector(state => state.adminStatus);
+  const isAdmin = useSelector(state => state.adminStatus);
 
 
   const logoutHandle =()=>{
     toast.success("Logout successfully");
     dispatch(loginCheck(false));
+    dispatch(adminStatus(false));
     localStorage.removeItem('loginDetails');
   }
 
@@ -37,7 +40,7 @@ const CustomNav = () => {
                 {isLoggedIn
                   ?
                   <>
-                  {adminStatus ? <Link to="/admin/dashboard">Admin Panel</Link> :< Link to="/enrolled/courses"> My Courses</Link>}
+                  {isAdmin ? <Link to="/admin/dashboard">Admin Panel</Link> :< Link to="/enrolled/courses"> My Courses</Link>}
                     
                     <Link  onClick={() =>{logoutHandle()} } >Logout</Link>
                   </>

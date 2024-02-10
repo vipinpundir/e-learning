@@ -169,14 +169,16 @@ html {
 }
 
  /* Style AddCourse component  */
- .AddCourse{
+ .AddCourse,
+ .EditCourse{
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
  }
- .AddCourse::before{
+ .AddCourse::before,
+ .EditCourse::before{
   content: '';
   position: absolute;
   background-color: #000000;
@@ -186,7 +188,8 @@ html {
   opacity: 0.7;
   z-index: -1;
  }
- .AddCourse form{
+ .AddCourse form,
+ .EditCourse form{
   background-color: #f5f5f5;
   width: fit-content;
   margin: auto;
@@ -195,10 +198,12 @@ html {
   text-align: center;
   border-radius: 5px;
  }
- .AddCourse form input{
+ .AddCourse form input,
+ .EditCourse form input{
   margin: 10px 0;
  }
- .AddCourse .btn-wrong{
+ .AddCourse .btn-wrong,
+ .EditCourse .btn-wrong{
   border: none;
   position: relative;
   top: -10px;
