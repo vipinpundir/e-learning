@@ -39,6 +39,8 @@ const AdminDashboard = () => {
     const handleAddChange = (e) => {
         let name = e.target.name
         let value = e.target.value
+        console.log(name,value)
+        console.log(addFormData)
         setAddFormData({
             ...addFormData,
             [name]: value
@@ -146,13 +148,13 @@ const AdminDashboard = () => {
                 <form onSubmit={handleAddCourseSubmit}>
                     <div onClick={() => setAddCourse(false)} className='btn-wrong' >✖</div>
                     <h2 className='mb-5'>Add New Course</h2>
-                    <input className="form-control" name='title' onChange={handleAddChange} value={editFormData.title} type="text" placeholder="Enter course title" required />
-                    <input className="form-control" name='author' onChange={handleAddChange} value={editFormData.author} type="text" placeholder="Enter instructor name" required />
-                    <input className="form-control" name='categories' onChange={handleAddChange} value={editFormData.categories} type="text" placeholder="Enter course category" required />
-                    <input className="form-control" name='video_url' onChange={handleAddChange} value={editFormData.video_url} type="url" placeholder="Enter video_url" required />
-                    <input className="form-control" name='img_url' onChange={handleAddChange} value={editFormData.img_url} type="url" placeholder="Enter thumbnail_url" required />
-                    <input className="form-control" name='price' onChange={handleAddChange} value={editFormData.price} type="text" placeholder="Enter course price" required />
-                    <input className="form-control" name='description' onChange={handleAddChange} value={editFormData.description} type="text" placeholder="Enter course description" required />
+                    <input className="form-control" name='title' onChange={handleAddChange} value={addFormData.title} type="text" placeholder="Enter course title" required />
+                    <input className="form-control" name='author' onChange={handleAddChange} value={addFormData.author} type="text" placeholder="Enter instructor name" required />
+                    <input className="form-control" name='categories' onChange={handleAddChange} value={addFormData.categories} type="text" placeholder="Enter course category" required />
+                    <input className="form-control" name='video_url' onChange={handleAddChange} value={addFormData.video_url} type="url" placeholder="Enter video_url" required />
+                    <input className="form-control" name='img_url' onChange={handleAddChange} value={addFormData.img_url} type="url" placeholder="Enter thumbnail_url" required />
+                    <input className="form-control" name='price' onChange={handleAddChange} value={addFormData.price} type="text" placeholder="Enter course price" required />
+                    <input className="form-control" name='description' onChange={handleAddChange} value={addFormData.description} type="text" placeholder="Enter course description" required />
 
                     <Button type='submit' >Submit</Button>
                 </form>
