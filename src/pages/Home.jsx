@@ -35,9 +35,10 @@ const Home = () => {
                 </Carousel.Item>
 
             </Carousel>
+            
+            <Courses></Courses>
             <About></About>
 
-            <Courses></Courses>
 
         </div>
     )

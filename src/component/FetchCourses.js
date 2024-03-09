@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Course from './Course.js';
 import "./FetchCourses.css"
-import Footer from '../component/Footer.js'
 import { useDispatch } from 'react-redux';
 import { getCourses } from '../redux/slices/CoursesSlice.js';
 
@@ -51,7 +50,7 @@ const FetchCourses = () => {
                     })} </> : <h1>courses not available..</h1>}
                 </div>
             </div>
-            <Footer></Footer>
+            
         </>
     )
 }

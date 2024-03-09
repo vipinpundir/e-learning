@@ -1,8 +1,10 @@
 import React from 'react'
 import aboutImg from '../assets/aboutImg.jpg'
+import Footer from './Footer.js'
 
 const About = () => {
   return (
+    <>
     <div className='About container-fluid mt-3 pt-5 row justify-content-around'>
         <div className="about-img col-md-6 p-3">
             <img src={aboutImg} alt="" />
@@ -20,6 +22,8 @@ const About = () => {
             <div className="btn">Read More</div>
         </div>
     </div>
+    <Footer></Footer>
+    </>
   )
 }
 
